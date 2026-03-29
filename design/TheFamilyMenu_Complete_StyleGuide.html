@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Family Menu - Style Guide</title>
+  <style>
+    :root{
+      --primary:#5A8F52;
+      --primary-dark:#456F40;
+      --secondary:#F3E8D3;
+      --accent:#D9822B;
+      --accent-soft:#F4B26A;
+      --bg:#FAF8F4;
+      --surface:#FFFFFF;
+      --surface-muted:#F5F1E8;
+      --text:#2F3437;
+      --text-soft:#5E666B;
+      --border:#D9D2C5;
+      --success:#4F8A53;
+      --warning:#C9871A;
+      --danger:#B85450;
+      --info:#5B8DB8;
+      --font-heading:"Poppins","Segoe UI",Arial,sans-serif;
+      --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+      --shadow-sm:0 2px 6px rgba(34,34,34,.08);
+      --shadow-md:0 10px 30px rgba(34,34,34,.10);
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.55}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px}
+    .brand{display:flex;align-items:center;gap:.75rem;font-family:var(--font-heading);font-weight:700;color:var(--primary-dark)}
+    .brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent-soft));display:grid;place-items:center;color:#fff;font-size:22px;box-shadow:var(--shadow-sm)}
+    .nav-links{display:flex;gap:1.5rem;color:var(--text-soft);font-size:.97rem}
+    .nav-links span.active{color:var(--primary-dark);font-weight:700}
+    .hero{padding:4rem 0 3rem;display:grid;grid-template-columns:1.2fr .9fr;gap:3rem;align-items:center}
+    .eyebrow{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:var(--secondary);color:var(--primary-dark);font-size:.85rem;font-weight:700;margin-bottom:1rem;border:1px solid #eadfc9}
+    h1,h2,h3,h4,h5,h6{margin:0 0 .75rem;font-family:var(--font-heading);line-height:1.15;letter-spacing:-.02em;color:var(--text)}
+    h1{font-size:3rem} h2{font-size:2rem;margin-bottom:1.5rem} h3{font-size:1.3rem}
+    p{margin:0 0 1rem;color:var(--text-soft)}
+    .hero-card,.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:2rem}
+    .hero-card{box-shadow:var(--shadow-md)}
+    .section{padding:3rem 0;border-top:1px solid rgba(217,210,197,.7)}
+    .section:first-of-type{border-top:none;padding-top:0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .swatch{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+    .swatch-top{min-height:96px;display:flex;align-items:flex-end;padding:.75rem;font-weight:700;color:#fff;font-family:var(--font-heading)}
+    .swatch-body{padding:1rem;font-size:.95rem;color:var(--text-soft)}
+    .type-sample{border:1px solid var(--border);border-radius:var(--radius-md);padding:1.25rem;background:#fff;margin-bottom:1rem}
+    .h1-sample{font-size:2.6rem;font-family:var(--font-heading);font-weight:700}
+    .h2-sample{font-size:2rem;font-family:var(--font-heading);font-weight:700}
+    .h3-sample{font-size:1.4rem;font-family:var(--font-heading);font-weight:600}
+    .body-lg{font-size:1.1rem}
+    .body-sm{font-size:.92rem;color:var(--text-soft)}
+    .caption{font-size:.82rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:.08em}
+    .button-row,.chip-row,.icon-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.15rem;border-radius:12px;border:1px solid transparent;font-weight:700;cursor:default;font-family:var(--font-body);text-decoration:none;box-shadow:var(--shadow-sm)}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-secondary{background:var(--secondary);color:var(--primary-dark);border-color:#eadfc9}
+    .btn-outline{background:#fff;color:var(--primary-dark);border-color:var(--primary)}
+    .btn-danger{background:var(--danger);color:#fff}
+    .btn-linkish{background:transparent;color:var(--primary-dark);box-shadow:none;padding:0}
+    .chip{padding:.48rem .8rem;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:.93rem;color:var(--text-soft)}
+    .chip.active{background:rgba(90,143,82,.12);color:var(--primary-dark);border-color:rgba(90,143,82,.35);font-weight:700}
+    label{display:block;font-weight:700;margin-bottom:.45rem;color:var(--text)}
+    input,select,textarea{width:100%;border:1px solid var(--border);background:#fff;border-radius:12px;padding:.9rem 1rem;font:inherit;color:var(--text);outline:none}
+    input:focus,select:focus,textarea:focus{border-color:rgba(90,143,82,.8);box-shadow:0 0 0 4px rgba(90,143,82,.15)}
+    .search{display:flex;align-items:center;gap:.75rem;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.8rem 1rem;max-width:560px}
+    .search input{border:none;padding:0;box-shadow:none;border-radius:0;background:transparent}
+    .meal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .meal-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+    .meal-img{height:160px;background:linear-gradient(135deg,#d8e7d4,#f6e4ce);display:grid;place-items:center;color:var(--primary-dark);font-weight:700;font-family:var(--font-heading)}
+    .meal-body{padding:1.5rem}
+    .price{font-weight:700;color:var(--accent)}
+    .list{display:grid;gap:.75rem;padding-left:0;margin:0;list-style:none}
+    .list li{padding:.8rem 1rem;border-radius:12px;background:#fff;border:1px solid var(--border)}
+    .navbar-demo{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1rem 1.25rem;box-shadow:var(--shadow-sm);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .navbar-menu{display:flex;gap:1.25rem;flex-wrap:wrap;color:var(--text-soft)}
+    .navbar-menu .current{color:var(--primary-dark);font-weight:700;position:relative}
+    .navbar-menu .current::after{content:"";position:absolute;left:0;right:0;bottom:-.35rem;height:3px;border-radius:999px;background:var(--primary)}
+    .icon{width:52px;height:52px;border-radius:14px;border:1px solid var(--border);background:#fff;box-shadow:var(--shadow-sm);display:grid;place-items:center;font-size:1.2rem}
+    .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .do,.dont{padding:1.5rem;border-radius:var(--radius-md);border:1px solid var(--border);background:#fff}
+    .do h3{color:var(--success)} .dont h3{color:var(--danger)}
+    .spec-table{width:100%;border-collapse:collapse;border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+    .spec-table th,.spec-table td{padding:1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+    .spec-table th{background:var(--surface-muted);font-family:var(--font-heading);width:26%}
+    .footer-note{padding:2rem 0 4rem;color:var(--text-soft);font-size:.95rem}
+    @media (max-width:900px){
+      .hero,.two-col,.do-dont,.meal-grid,.color-grid{grid-template-columns:1fr}
+      h1{font-size:2.35rem}
+      .nav{flex-direction:column;align-items:flex-start;padding:.75rem 0}
+      .nav-links{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">🍽</div>
+        <div>The Family Menu</div>
+      </div>
+      <div class="nav-links">
+        <span class="active">Style Guide</span>
+        <span>Bootstrap Notes</span>
+        <span>Components</span>
+        <span>Usage Rules</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Bootstrap-based design system</div>
+        <h1>Complete Style Guide for The Family Menu</h1>
+        <p class="body-lg">This style guide defines the visual identity for a family-focused meal planning web application. The goal is to make the interface feel warm, organized, practical, and easy to use for busy households.</p>
+        <p>Since the application helps users plan meals, build grocery lists, and manage weekly food decisions, the design should feel calm and trustworthy rather than flashy or overly trendy.</p>
+        <div class="button-row">
+          <span class="btn btn-primary">Primary Action</span>
+          <span class="btn btn-secondary">Secondary Action</span>
+          <span class="btn btn-outline">Outline Button</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="caption">Brand personality</div>
+        <h3>Simple. Family-oriented. Efficient.</h3>
+        <ul class="list">
+          <li>Warm, clean colors inspired by fresh ingredients and home cooking</li>
+          <li>Readable typography for busy users scanning recipes and grocery lists</li>
+          <li>Card-based layouts that work naturally with Bootstrap grid classes</li>
+          <li>Clear calls to action for adding meals, viewing plans, and checking grocery lists</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>1. Brand Direction</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Visual tone</h3>
+          <p>The interface should feel welcoming and practical. Users are often planning meals while distracted, tired, or multitasking, so the layout should reduce cognitive load and emphasize clarity.</p>
+          <div class="chip-row">
+            <span class="chip active">Warm</span>
+            <span class="chip active">Organized</span>
+            <span class="chip active">Friendly</span>
+            <span class="chip active">Reliable</span>
+            <span class="chip">Minimal</span>
+            <span class="chip">Approachable</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Bootstrap implementation notes</h3>
+          <p>Use Bootstrap for layout, forms, buttons, spacing, and responsive behavior. Apply custom classes on top of Bootstrap components to preserve a consistent brand look.</p>
+          <table class="spec-table">
+            <tr><th>Use Bootstrap for</th><td>Grid, containers, navbars, forms, modals, spacing utilities, responsive layout</td></tr>
+            <tr><th>Customize</th><td>Colors, border radius, shadows, button styling, card presentation, heading typography</td></tr>
+            <tr><th>Avoid</th><td>Overusing saturated default Bootstrap blues if they clash with the warm home-cooking aesthetic</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. Color Palette</h2>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--primary)">Primary Green</div>
+          <div class="swatch-body"><strong>#5A8F52</strong><br>Main brand color for primary buttons, active states, highlighted navigation, and positive actions.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--primary-dark)">Primary Dark</div>
+          <div class="swatch-body"><strong>#456F40</strong><br>Used for stronger emphasis, hover states, and dark green text accents.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--accent)">Accent Orange</div>
+          <div class="swatch-body"><strong>#D9822B</strong><br>Used sparingly for cost highlights, emphasis, and selected visual accents.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--secondary);color:var(--primary-dark)">Warm Cream</div>
+          <div class="swatch-body"><strong>#F3E8D3</strong><br>Good for secondary buttons, highlighted panels, and soft supportive backgrounds.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--bg);color:var(--text)">Page Background</div>
+          <div class="swatch-body"><strong>#FAF8F4</strong><br>Main site background. Keeps the application feeling open, calm, and bright.</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-top" style="background:var(--text)">Body Text</div>
+          <div class="swatch-body"><strong>#2F3437</strong><br>Primary text color for readability. Use softer gray for secondary supporting text.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. Typography</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Font choices</h3>
+          <table class="spec-table">
+            <tr><th>Headings</th><td>Poppins, Segoe UI, Arial, sans-serif</td></tr>
+            <tr><th>Body text</th><td>Inter, Helvetica Neue, Arial, sans-serif</td></tr>
+            <tr><th>Reason</th><td>Poppins feels warm and friendly for headlines. Inter is highly readable for lists, recipe steps, and grocery details.</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="type-sample"><div class="h1-sample">Heading 1 / Page Titles</div><div class="body-sm">Use for hero titles and major page headers.</div></div>
+          <div class="type-sample"><div class="h2-sample">Heading 2 / Section Titles</div><div class="body-sm">Use for content sections and dashboard groupings.</div></div>
+          <div class="type-sample"><div class="h3-sample">Heading 3 / Card Titles</div><div class="body-sm">Use for meal cards, recipe titles, and modules.</div></div>
+          <div class="type-sample"><div class="body-lg">Large body copy for intros and key instructions.</div></div>
+          <div class="type-sample"><div>Regular body copy for recipes, lists, and UI labels.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>4. Buttons</h2>
+      <div class="card">
+        <h3>Button hierarchy</h3>
+        <div class="button-row" style="margin-top:1rem">
+          <span class="btn btn-primary">Add to Meal Plan</span>
+          <span class="btn btn-secondary">Generate Grocery List</span>
+          <span class="btn btn-outline">View Recipe</span>
+          <span class="btn btn-danger">Remove Meal</span>
+          <span class="btn btn-linkish">Clear filters</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. Forms and Inputs</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Search and filters</h3>
+          <div class="search">
+            <span>🔎</span>
+            <input value="Search meals, ingredients, or categories" />
+          </div>
+          <div class="chip-row" style="margin-top:1rem">
+            <span class="chip active">Family Friendly</span>
+            <span class="chip">30 Minutes or Less</span>
+            <span class="chip">Vegetarian</span>
+            <span class="chip">Low Budget</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Form style</h3>
+          <label>Meal name</label>
+          <input type="text" value="Creamy Chicken Pasta" />
+          <br>
+          <label>Meal category</label>
+          <select><option>Weeknight Dinner</option></select>
+          <br>
+          <label>Notes</label>
+          <textarea rows="4">Optional notes about substitutions, preferences, or prep reminders.</textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>6. Cards and Content Modules</h2>
+      <div class="meal-grid">
+        <div class="meal-card">
+          <div class="meal-img">Meal Image</div>
+          <div class="meal-body">
+            <h3>Garlic Herb Chicken</h3>
+            <p>Family-friendly dinner with simple ingredients and quick prep.</p>
+            <p class="price">Estimated cost: $14</p>
+            <span class="btn btn-primary">Add to Meal Plan</span>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-img">Meal Image</div>
+          <div class="meal-body">
+            <h3>Beef Taco Bowls</h3>
+            <p>Balanced meal with flexible toppings and easy leftovers.</p>
+            <p class="price">Estimated cost: $18</p>
+            <span class="btn btn-outline">View Recipe</span>
+          </div>
+        </div>
+        <div class="meal-card">
+          <div class="meal-img">Meal Image</div>
+          <div class="meal-body">
+            <h3>Vegetable Soup</h3>
+            <p>Budget-friendly option that scales well for larger households.</p>
+            <p class="price">Estimated cost: $11</p>
+            <span class="btn btn-secondary">Save for Later</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>7. Navigation</h2>
+      <div class="navbar-demo">
+        <div class="brand">
+          <div class="brand-mark">🍲</div>
+          <div>The Family Menu</div>
+        </div>
+        <div class="navbar-menu">
+          <span>Home</span>
+          <span>Meal Library</span>
+          <span class="current">My Meal Plan</span>
+          <span>My Grocery List</span>
+        </div>
+        <div><span class="btn btn-secondary">Weekly Plan</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>8. Icons</h2>
+      <div class="icon-row">
+        <div class="icon">🏠</div>
+        <div class="icon">📖</div>
+        <div class="icon">🗓</div>
+        <div class="icon">🛒</div>
+        <div class="icon">➕</div>
+        <div class="icon">🗑</div>
+        <div class="icon">⏱</div>
+        <div class="icon">💲</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>9. Spacing, Layout, and Responsiveness</h2>
+      <div class="do-dont">
+        <div class="do">
+          <h3>Do</h3>
+          <p>Use generous whitespace, consistent card padding, and clean grouping between recipe and grocery content.</p>
+        </div>
+        <div class="dont">
+          <h3>Don’t</h3>
+          <p>Do not overcrowd screens with too many competing actions, dense text blocks, or inconsistent spacing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>10. Bootstrap Mapping</h2>
+      <table class="spec-table">
+        <tr><th>Layout</th><td>Use .container, .row, and .col-* for page structure</td></tr>
+        <tr><th>Buttons</th><td>Start from Bootstrap button classes and override colors, border radius, and shadows</td></tr>
+        <tr><th>Forms</th><td>Use Bootstrap form controls, then apply custom brand focus states</td></tr>
+        <tr><th>Cards</th><td>Bootstrap cards are a good base, but increase border radius and soften colors</td></tr>
+        <tr><th>Navbar</th><td>Use Bootstrap navbar structure, but keep link count low and styling warm/minimal</td></tr>
+      </table>
+    </section>
+
+    <div class="footer-note">
+      <strong>Final note:</strong> This style guide is designed to support the app’s main promise: helping busy users move from choosing meals to building a complete grocery list with as little friction as possible.
+    </div>
+  </div>
+</body>
+</html>
