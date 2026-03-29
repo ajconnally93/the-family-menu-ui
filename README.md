@@ -1,5 +1,3 @@
-# the-family-menu-ui
-
 # The Family Menu - User Interface
 
 ## Purpose of the Application
