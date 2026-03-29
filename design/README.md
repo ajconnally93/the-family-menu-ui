@@ -6,3 +6,4 @@ Included documents:
 - Wireframes
 - Storyboard
 - Style guide
+- Personas
